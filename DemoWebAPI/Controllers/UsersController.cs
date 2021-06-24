@@ -1,6 +1,7 @@
 ﻿using DataAccess;
 using DataAccess.Context;
 using DataAccess.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -22,18 +23,34 @@ namespace DemoWebAPI.Controllers
             _dc = dc;
         }
 
-        //Dangerous, this method should not be available to everyone
+        //Only admin role may perform this request
         [HttpGet]
+        [Authorize]
         public ActionResult<List<User>> Get()
         {
+            var currentUser = HttpContext.User;
+            string currentUserRole = string.Empty;
+            if (currentUser.HasClaim(c => c.Type == "UserRole"))
+            {
+                currentUserRole = currentUser.Claims.FirstOrDefault(c => c.Type == "UserRole").Value;
+            }
             //Todo Error Handling
-            return Ok(UserHelper.GetUsers(_dc));
+            if (currentUserRole == "admin")
+            {
+                return Ok(UserHelper.GetUsers(_dc));
+            }
+            else
+            {
+                return Unauthorized();
+            }
         }
 
         [HttpGet("{userName}")]
+        [Authorize]
         public ActionResult<User> GetUser(string userName)
         {
             //Todo Error Handling
+            //Todo this operation should only retrieve the userInfo that corresponds to the logguedInUser, except for admin
             return Ok(UserHelper.GetUserByUserName(_dc, userName));
         }
 
