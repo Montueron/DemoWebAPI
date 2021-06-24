@@ -4,6 +4,7 @@ using DataAccess.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -21,11 +22,13 @@ namespace DemoWebAPI.Controllers
     {
         private readonly IConfiguration _config;
         private readonly DataContext _dc;
+        private readonly ILogger<LoginController> _logger;
 
-        public LoginController(IConfiguration config, DataContext dc)
+        public LoginController(IConfiguration config, DataContext dc, ILogger<LoginController> logger)
         {
             _config = config;
             _dc = dc;
+            _logger = logger;
         }
 
 
@@ -33,6 +36,11 @@ namespace DemoWebAPI.Controllers
         [HttpPost]
         public IActionResult Login([FromBody] User login)
         {
+            _logger.LogInformation("Called Login method info");
+            _logger.LogWarning("Called Login method warning");
+            _logger.LogDebug("Called Login method debug");
+            _logger.LogError("Called Login method error");
+            _logger.LogTrace("Called Login method trace");
             IActionResult response = Unauthorized();
             var user = AuthenticateUser(login);
 
