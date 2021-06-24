@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoWebAPI", "DemoWebAPI\DemoWebAPI.csproj", "{F173AF3A-BFC6-4E19-A223-269A87B4A5A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoWebAPI", "DemoWebAPI\DemoWebAPI.csproj", "{F173AF3A-BFC6-4E19-A223-269A87B4A5A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{9508B611-B704-487D-9D38-4162F7AFA8F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F173AF3A-BFC6-4E19-A223-269A87B4A5A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F173AF3A-BFC6-4E19-A223-269A87B4A5A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F173AF3A-BFC6-4E19-A223-269A87B4A5A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9508B611-B704-487D-9D38-4162F7AFA8F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9508B611-B704-487D-9D38-4162F7AFA8F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9508B611-B704-487D-9D38-4162F7AFA8F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9508B611-B704-487D-9D38-4162F7AFA8F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
