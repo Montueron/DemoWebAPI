@@ -30,5 +30,12 @@ namespace DemoWebAPI.Controllers
             return Ok(UserHelper.GetUsers(_dc));
         }
 
+        [HttpGet("{userName}")]
+        public ActionResult<User> GetUser(string userName)
+        {
+            //Todo Error Handling
+            return Ok(UserHelper.GetUserByUserName(_dc, userName));
+        }
+
     }
 }
