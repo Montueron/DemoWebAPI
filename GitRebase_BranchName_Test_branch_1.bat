@@ -18,7 +18,7 @@ echo Branch exists
 git checkout master
 git pull
 git checkout %branchNameFromFile%
-git rebase master
+git merge master
 echo Program will exit
 pause
 )
