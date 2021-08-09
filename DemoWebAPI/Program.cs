@@ -16,6 +16,7 @@ namespace DemoWebAPI
             CreateHostBuilder(args).Build().Run();
             //Comment
             //Comment 2
+            //Comment4
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
