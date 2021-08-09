@@ -26,6 +26,7 @@ namespace DemoWebAPI
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    //comment6
                 });
     }
 }
